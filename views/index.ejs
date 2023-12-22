@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,24 +13,17 @@
     <input type="text" id="city" name="cityname"><br>
     <input type="submit" value="Submit">
   </form>
-  <div class="weather-app">
+  <div class="container">
+    <h1>Weather App</h1>
     <div class="weather-card">
-      <% if(city!==null){%>
-        <h2><%= city %></h2>
-        <% }%>
-      <img src="http://openweathermap.org/img/w/<%= icon %>.png" alt="Weather Icon">
-      <% if(temp!==null){ %>
-        <p><%= temp %>°C</p>
-        <% } %>
-
-      <% if(desc!==null){%>
-        <p><%= desc %></p>
-        <% }%>
-
-      <% if(wind!==null){%>
-        <p><%= wind %> km/h</p>
-        <% }%>
+      <%if(weathers){ %>
+        <div class="location"><%=weathers.name%></div>
+        <img src="http://openweathermap.org/img/w/<%= weathers.weather[0].icon %>.png" alt="Weather Icon">
+        <div class="temperature"><%=Math.floor(weathers.main.temp-273.5)%>°C</div>
+        <div class="conditions"><%=weathers.weather[0].description%></div>
+      <%}%>
     </div>
   </div>
 </body>
 </html>
+
